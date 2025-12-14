@@ -11,15 +11,23 @@ export default function ContactInfo() {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-primary" />
-              <span>contact@example.com</span>
+              <span>sit.intsl@gmail.com</span>
             </div>
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5 text-primary" />
-              <span>+1 (555) 123-4567</span>
+              <span>0774954994</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Phone className="w-5 h-5 text-primary" />
+              <span>0704454124</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Phone className="w-5 h-5 text-primary" />
+              <span>0702635042</span>
             </div>
             <div className="flex items-center space-x-3">
               <MapPin className="w-5 h-5 text-primary" />
-              <span>123 Main St, Anytown, ST 12345</span>
+              <span>No.135/3/20, E L Senanayake St, Kandy</span>
             </div>
           </div>
           <div className="mt-6">

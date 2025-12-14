@@ -144,7 +144,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           className="max-w-2xl mx-auto text-xl sm:text-2xl text-zinc-200 mb-8"
         >
-          Join with us to make your life successful.
+          Your Partner in the Global Education Journey
         </motion.p>
 
         <motion.div

@@ -9,7 +9,7 @@ export default function Footer() {
         
         <div className="flex flex-col md:flex-row justify-between items-center py-10">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm">&copy; 2024 Your Company. All rights reserved.</p>
+            <p className="text-sm">&copy; 2024 SIT International Education. All rights reserved.</p>
           </div>
           <div className="flex flex-wrap justify-center mb-4 md:mb-0">
             <a href="#" className="mx-2 my-1 hover:text-gray-900">About</a>

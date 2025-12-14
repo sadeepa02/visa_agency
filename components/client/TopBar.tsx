@@ -13,8 +13,8 @@ const TopBar = () => {
           </div>
           <div className="flex items-center">
             <Phone className="h-4 w-4 mr-2" />
-            <a href="tel:+15589554885" className="hover:underline">
-              Call us now +1 5589 55488 55
+            <a href="tel:0774954994" className="hover:underline">
+              Call us now 0774954994
             </a>
           </div>
         </div>

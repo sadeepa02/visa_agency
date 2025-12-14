@@ -40,14 +40,14 @@ const Navbar = () => {
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Image 
-                  src='/agency-logo.jpg' 
-                  alt='Agency logo' 
+                  src='/LOGO.jpg' 
+                  alt='SIT International Education logo' 
                   width={40} 
                   height={40} 
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <span className="font-bold text-xl text-zinc-900 tracking-tight">
-                  Agency
+                  SIT International Education
                 </span>
               </Link>
             </div>
