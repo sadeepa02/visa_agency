@@ -15,19 +15,11 @@ export default function UniversityList() {
     uni.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const columnCount = 3;
-  const columnsData = filteredUniversities.reduce<typeof universityData[]>((acc, uni, index) => {
-    const columnIndex = index % columnCount;
-    if (!acc[columnIndex]) {
-      acc[columnIndex] = [];
-    }
-    acc[columnIndex].push(uni);
-    return acc;
-  }, []);
+  // Removed column-based layout - using direct grid instead for proper alignment
 
   return (
     
-      <div id="Universities" className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative overflow-hidden">
+      <div id="Universities" className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative overflow-hidden rounded-3xl mx-4 my-8 border border-blue-100 shadow-lg">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
@@ -51,7 +43,7 @@ export default function UniversityList() {
             <GraduationCap className="w-10 h-10 text-white animate-pulse" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-gray-800 via-blue-800 to-blue-900 bg-clip-text text-transparent mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-gray-800 via-blue-800 to-blue-900 bg-clip-text text-transparent mb-6 leading-normal pb-2">
             Find Your Dream
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
@@ -125,66 +117,62 @@ export default function UniversityList() {
                 <p className="text-gray-600">Try adjusting your search terms or browse all universities</p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-3 gap-x-12 gap-y-6">
-                {columnsData.map((column, columnIndex) => (
-                  <div key={columnIndex} className="space-y-6">
-                    {column.map((university) => (
-                      <Link
-                        key={university.slug}
-                        href={`/universities/${university.slug}`}
-                        className="group block"
-                        onMouseEnter={() => setHoveredCard(university.slug)}
-                        onMouseLeave={() => setHoveredCard(null)}
-                      >
-                        <div className="relative overflow-hidden">
-                          {/* Card glow effect */}
-                          <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-700/20 rounded-2xl blur-xl transition-all duration-500 ${
-                            hoveredCard === university.slug ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
-                          }`}></div>
+              <div className="grid md:grid-cols-3 gap-6">
+                {filteredUniversities.map((university) => (
+                  <Link
+                    key={university.slug}
+                    href={`/universities/${university.slug}`}
+                    className="group block h-full"
+                    onMouseEnter={() => setHoveredCard(university.slug)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <div className="relative overflow-hidden h-full">
+                      {/* Card glow effect */}
+                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-700/20 rounded-2xl blur-xl transition-all duration-500 ${
+                        hoveredCard === university.slug ? 'opacity-100 scale-110' : 'opacity-0 scale-100'
+                      }`}></div>
+                      
+                      <div className="relative bg-white/60 backdrop-blur-sm border border-blue-100 rounded-2xl p-6 transition-all duration-500 hover:bg-white/80 hover:border-blue-200 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl group h-full flex flex-col">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="flex-shrink-0">
+                            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                              <Plus className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
+                            </div>
+                          </div>
                           
-                          <div className="relative bg-white/60 backdrop-blur-sm border border-blue-100 rounded-2xl p-6 transition-all duration-500 hover:bg-white/80 hover:border-blue-200 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl group">
-                            <div className="flex items-start gap-4">
-                              <div className="flex-shrink-0">
-                                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                                  <Plus className="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-300" />
-                                </div>
+                          <div className="flex-1 min-w-0 flex flex-col">
+                            <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight mb-2">
+                              {university.name}
+                            </h3>
+                            
+                            <div className="flex items-center mb-3">
+                              <div className="flex space-x-1 mr-3">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                                ))}
                               </div>
-                              
-                              <div className="flex-1 min-w-0">
-                                <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300 leading-tight mb-2">
-                                  {university.name}
-                                </h3>
-                                
-                                <div className="flex items-center mb-3">
-                                  <div className="flex space-x-1 mr-3">
-                                    {[...Array(5)].map((_, i) => (
-                                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                                    ))}
-                                  </div>
-                                  <span className="text-sm text-gray-500">4.8/5</span>
-                                </div>
-                                
-                                <div className="flex items-center text-sm text-gray-500 mb-3">
-                                  <MapPin className="w-4 h-4 mr-2" />
-                                  <span>Global Campus</span>
-                                </div>
-                                
-                                <div className="flex items-center text-sm text-blue-600 font-medium group-hover:text-blue-700 transition-colors duration-300">
-                                  <span>Explore Programs</span>
-                                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                                </div>
-                              </div>
+                              <span className="text-sm text-gray-500">4.8/5</span>
                             </div>
                             
-                            {/* Hover indicator */}
-                            <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full transition-all duration-300 ${
-                              hoveredCard === university.slug ? 'scale-100 animate-pulse' : 'scale-0'
-                            }`}></div>
+                            <div className="flex items-center text-sm text-gray-500 mb-3">
+                              <MapPin className="w-4 h-4 mr-2" />
+                              <span>Global Campus</span>
+                            </div>
+                            
+                            <div className="flex items-center text-sm text-blue-600 font-medium group-hover:text-blue-700 transition-colors duration-300 mt-auto">
+                              <span>Explore Programs</span>
+                              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                            </div>
                           </div>
                         </div>
-                      </Link>
-                    ))}
-                  </div>
+                        
+                        {/* Hover indicator */}
+                        <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full transition-all duration-300 ${
+                          hoveredCard === university.slug ? 'scale-100 animate-pulse' : 'scale-0'
+                        }`}></div>
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             )}

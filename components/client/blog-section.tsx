@@ -15,36 +15,32 @@ export default async function BlogSection() {
   }).from(blogs).orderBy(blogs.createdAt).limit(3)
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
+    <section className="mx-auto max-w-7xl px-4 py-8 mb-16">
       <div className="text-center">
-        <h2 className="text-3xl font-bold sm:text-4xl">
+        <h2 className="text-3xl font-bold sm:text-5xl">
             Stay updated with our latest blogs
         </h2>
         <p className="mt-4 text-lg text-muted-foreground">
-          Explore the best study destinations in the world! Learn all about the countries&apos; top universities, scholarships, cost of living, post-study work rights and more
+          Explore the best study destinations in the world! Learn all about the countries&apos; top universities, scholarships, cost of living, post-study work rights and more.
         </p>
       </div>
       
-      <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <StudyDestinationCard
             key={post.title}
             post={post}      
           />
         ))}
-      </div>
+      </div> */}
 
-      <div className="mt-16 text-center">
-        <h3 className="text-xl font-semibold">
-          Want to read on other topics?
-        </h3>
+      <div className="mt-4 text-center">
         <Button 
-          variant="outline" 
-          className="mt-4"
+          className="mt-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium px-6 h-10 rounded-lg shadow-md transition-all duration-300"
           asChild
         >
           <Link href="/blogs">
-            Explore our blogs &gt;
+            Explore Our Blogs
           </Link>
         </Button>
       </div>
@@ -67,12 +63,12 @@ export default async function BlogSection() {
         <CardContent className="px-1 pt-4">
           <h3 className="text-xl font-semibold">{post.title}</h3>
           <p className="truncate">{post.content}</p>
-          <Button asChild className="bg-zinc-900 text-zinc-100 hover:bg-zinc-800">
+          <Button asChild className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium rounded-lg shadow-md transition-all duration-300">
             <Link 
               href={{
                 pathname: `/blogs/${post.id}`,
                 query: { postData: JSON.stringify(post) }}}
-              className="mt-2 inline-flex items-center text-primary hover:underline"
+              className="mt-2 inline-flex items-center"
             >
               Learn more &gt;
             </Link>

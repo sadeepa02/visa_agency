@@ -10,6 +10,9 @@ export default withUt({
 	"./src/**/*.{ts,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      montserrat: ['var(--font-montserrat)', 'sans-serif'],
+    },
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',

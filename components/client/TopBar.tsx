@@ -4,7 +4,7 @@ import { Clock, Phone } from 'lucide-react'
 
 const TopBar = () => {
   return (
-    <div className="w-full bg-[#002244] text-white py-2 fixed top-0 left-0 right-0 z-50 top-bar">
+    <div className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 fixed top-0 left-0 right-0 z-50 top-bar">
       <div className="container mx-auto px-4 sm:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
           <div className="flex items-center mb-2 sm:mb-0">

@@ -1,11 +1,10 @@
-import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 export default function ContactInfo() {
   return (
     <div className="bg-background text-foreground rounded-lg shadow-md overflow-hidden max-w-6xl mx-auto">
-      <div className="flex flex-col-reverse md:flex-row">
+      <div className="flex flex-col md:flex-row">
         <div className="md:w-1/2 p-8">
           <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
           <div className="space-y-4">
@@ -34,7 +33,7 @@ export default function ContactInfo() {
             <h3 className="text-xl font-semibold mb-3">Connect With Us</h3>
             <div className="flex space-x-2">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/share/1B5cWv5UVi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
                   </svg>
@@ -60,14 +59,27 @@ export default function ContactInfo() {
             </div>
           </div>
         </div>
-        <div className="md:w-1/2 relative h-96">
-          <Image
-            src="/contact-us.jpg"
-            alt="Contact us illustration"
-            layout="fill"
-            objectFit="cover"
-            priority
+        <div className="md:w-1/2 relative h-96 w-full">
+          <iframe
+            src="https://www.google.com/maps?q=No.135/3/20,+E+L+Senanayake+St,+Kandy&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+            title="SIT International Education Location"
           />
+          <a 
+            href="https://share.google/Ok96opKNQ0WZLBF2b" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-shadow text-sm font-medium text-gray-700 hover:text-blue-600 z-10"
+            aria-label="View location on Google Maps"
+          >
+            View on Google Maps →
+          </a>
         </div>
       </div>
     </div>

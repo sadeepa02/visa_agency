@@ -163,7 +163,7 @@ export default function ConsultationForm() {
                     </p>
                   )}
                 </div>
-          <Button className="w-full bg-[#002244] hover:bg-[#0a2351] text-white">Get Free Consultation</Button>
+          <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium transition-all duration-300">Get Free Consultation</Button>
         </form>
       </div>
     </div>

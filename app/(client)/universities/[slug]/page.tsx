@@ -21,7 +21,7 @@ export default async function UniversityPage(props: { params: tParams }) {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section - Cleaner, More Professional */}
-      <div className="relative w-full h-[300px] md:h-[450px] lg:h-[500px] overflow-hidden">
+      <div className="relative w-full h-[500px] lg:h-[600px] overflow-hidden">
         {/* Image Container */}
         <div className="absolute inset-0">
           <Image
@@ -32,7 +32,7 @@ export default async function UniversityPage(props: { params: tParams }) {
             priority
           />
           {/* Gradient Overlay for Better Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
         </div>
         
         {/* Hero Content - Bottom Aligned */}
@@ -42,7 +42,7 @@ export default async function UniversityPage(props: { params: tParams }) {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4">
                 {university.name}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-white/95 max-w-2xl mb-6 md:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-slate-50 max-w-2xl mb-6 md:mb-8 leading-relaxed">
                 {university.description}
               </p>
               <div className="flex flex-wrap gap-3 md:gap-4">

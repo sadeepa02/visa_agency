@@ -70,7 +70,8 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-[70vh] sm:h-screen w-full overflow-hidden">
+    <section className="relative h-[70vh] sm:h-[100vh] w-full overflow-hidden mt-[80px]">
+
       {/* Background placeholder */}
       <div
         aria-hidden
@@ -89,7 +90,7 @@ const Hero = () => {
             fill
             unoptimized={true}
             priority
-            style={{ objectFit: 'cover', opacity: loaded ? 1 : 0, transition: 'opacity 600ms ease' }}
+            style={{ objectFit: 'cover', objectPosition: 'top center', opacity: loaded ? 1 : 0, transition: 'opacity 600ms ease' }}
             onLoad={() => {
               console.log('Hero: image loaded ->', currentSrc);
               setLoaded(true);
@@ -133,7 +134,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-100 mb-4"
+          className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-zinc-100 mb-4"
         >
           Study In Russia
         </motion.h1>
@@ -153,7 +154,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <Button asChild className="text-zinc-200 bg-[#002244] hover:bg-[#0a2351]">
+          <Button asChild className="text-white bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 shadow-lg transition-all duration-300">
             <Link href="#Consultation">Get Free Consultation</Link>
           </Button>
         </motion.div>

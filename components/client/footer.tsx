@@ -18,7 +18,7 @@ export default function Footer() {
             <a href="#" className="mx-2 my-1 hover:text-gray-900">Privacy Policy</a>
           </div>
           <div className="flex">
-            <a href="#" className="mx-2 hover:text-gray-900" aria-label="Facebook">
+            <a href="https://www.facebook.com/share/1B5cWv5UVi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="mx-2 hover:text-gray-900" aria-label="Facebook">
               <Facebook size={20} />
             </a>
             <a href="#" className="mx-2 hover:text-gray-900" aria-label="Twitter">

@@ -5,7 +5,7 @@ import { FileText, Upload, ArrowRight, CheckCircle } from 'lucide-react'
 
 const documentHandler = () => {
   return (
-    <div className='w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative overflow-hidden py-16'>
+    <div className='w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 relative overflow-hidden py-16 rounded-3xl mx-4 my-8 border border-blue-100 shadow-lg'>
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100/40 via-transparent to-transparent"></div>
@@ -28,7 +28,7 @@ const documentHandler = () => {
             <FileText className="w-10 h-10 text-white animate-pulse" />
           </div>
           
-          <h3 className='text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-800 via-blue-800 to-blue-900 bg-clip-text text-transparent mb-6 leading-tight'>
+          <h3 className='text-4xl md:text-5xl font-black bg-gradient-to-r from-gray-800 via-blue-800 to-blue-900 bg-clip-text text-transparent mb-6 leading-normal pb-2'>
             Apply Today!
           </h3>
           
@@ -142,33 +142,6 @@ const documentHandler = () => {
               <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-blue-700/10 rounded-full border border-blue-200">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
                 <span className="text-blue-700 font-medium">Fast processing • Secure upload • Expert support</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Additional Info Card */}
-        <div className="mt-12 text-center">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-            <div className="relative bg-white/50 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-blue-100 shadow-xl">
-              <h4 className="text-2xl font-bold text-gray-800 mb-4">Need Help?</h4>
-              <p className="text-gray-600 mb-4">
-                Our support team is here to assist you throughout the application process.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-500">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  <span>Available 24/7</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></div>
-                  <span>Quick Response</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></div>
-                  <span>Expert Guidance</span>
-                </div>
               </div>
             </div>
           </div>

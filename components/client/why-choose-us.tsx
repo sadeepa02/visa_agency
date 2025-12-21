@@ -29,10 +29,10 @@ function Stat({ icon, number, label, index }: StatProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flex flex-col items-center justify-center space-y-4 text-center"
+      className="flex flex-col items-center justify-center space-y-2 md:space-y-4 text-center h-full"
     >
       <motion.div 
-        className="h-12 w-12 [&>svg]:h-full [&>svg]:w-full"
+        className="h-10 w-10 md:h-12 md:w-12 [&>svg]:h-full [&>svg]:w-full flex-shrink-0"
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : { scale: 0 }}
         transition={{ type: "spring", stiffness: 100, delay: index * 0.1 + 0.2 }}
@@ -41,7 +41,7 @@ function Stat({ icon, number, label, index }: StatProps) {
       </motion.div>
       <div className="space-y-2">
         <motion.div 
-          className="text-5xl font-bold tracking-tight"
+          className="text-3xl md:text-5xl font-bold tracking-tight"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
@@ -51,7 +51,7 @@ function Stat({ icon, number, label, index }: StatProps) {
           )}
         </motion.div>
         <motion.div 
-          className="text-sm font-medium tracking-widest lg:text-base"
+          className="text-xs md:text-sm font-medium tracking-wider md:tracking-widest lg:text-base px-2"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
@@ -107,7 +107,7 @@ export default function WhyChooseUs() {
   return (
     <section className="relative">
       <div className="relative mx-auto max-w-7xl px-4 py-16">
-        <div className="grid gap-12 grid-cols-2 md:grid-cols-4 lg:gap-16 text-[#002244]">
+        <div className="grid gap-4 md:gap-12 grid-cols-2 md:grid-cols-4 lg:gap-16 text-[#002244]">
           {stats.map((stat, index) => (
             <Stat 
               key={stat.label} 

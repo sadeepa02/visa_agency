@@ -11,8 +11,11 @@ export default function Testimonials() {
           We are thrilled to have been a part of 60,000+ successful student stories. Hear a few of their experiences
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-[#002244] hover:bg-[#0a2351] text-white p-6 rounded-lg shadow-md flex flex-col h-full">
+          {testimonials.slice(0, 6).map((testimonial, index) => (
+            <div 
+              key={index} 
+              className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white p-6 rounded-lg shadow-md flex flex-col h-full transition-all duration-300"
+            >
               <div className="flex-grow">
                 <div className="flex items-start mb-4">
                   <span className="text-4xl mr-2"><Quote /></span>
@@ -34,6 +37,58 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Success Photos Section */}
+        <div className="mt-16">
+          <h3 className="text-3xl sm:text-4xl font-bold mb-2">Our Success Stories</h3>
+          <p className="text-lg text-gray-600 mb-8">
+            Join thousands of successful students who achieved their dreams with SIT International Education
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <Image
+                src="/success.jpg"
+                alt="Successful students group photo"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <Image
+                src="/success1.jpg"
+                alt="Successful students group photo"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+              <Image
+                src="/success2.jpg"
+                alt="Successful students group photo"
+                width={600}
+                height={400}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </div>
+          
+          {/* Success Video Section */}
+          <div className="mt-12">
+            <div className="relative overflow-hidden rounded-lg shadow-lg w-full aspect-video">
+              <video
+                src="/success.mp4"
+                controls
+                controlsList="nodownload"
+                className="w-full h-full object-cover"
+                poster="/success.jpg"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </div>

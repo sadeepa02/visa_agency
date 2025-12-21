@@ -10,13 +10,23 @@ import TopBar from './TopBar';
 import { navlinks } from "@/consts";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const { getPermissions, isLoading } = useKindeBrowserClient()
   const { permissions } = getPermissions()
   const [mounted, setMounted] = useState(false)
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   const isAdmin = permissions?.includes("view:dashboard")
+
+  const getHref = (item: string) => {
+    if (item === 'Home') return '/'
+    if (item === 'Blog') return '/blogs'
+    // For section links, if on home page, use #, else use /#
+    return pathname === '/' ? `#${item}` : `/#${item}`
+  }
 
   useEffect(() => {
     setMounted(true)
@@ -58,7 +68,7 @@ const Navbar = () => {
               {navlinks.map((item) => (
                 <li key={item}>
                   <a
-                    href={item === 'Blog' ? '/blogs' : `#${item}`}
+                    href={getHref(item)}
                     className="font-semibold text-base tracking-wide text-zinc-900 transition-all duration-300 relative group"
                   >
                     {item}
@@ -75,7 +85,7 @@ const Navbar = () => {
                 <Link href="/dashboard">
                   <Button 
                     variant="default" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 h-10 rounded-lg shadow-sm"
+                    className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium px-6 h-10 rounded-lg shadow-md transition-all duration-300"
                   >
                     {!isAdmin ? "Contact Us" : "Dashboard"}
                   </Button>
@@ -85,7 +95,7 @@ const Navbar = () => {
               {mounted && isLoading && (
                 <Button 
                   variant="default" 
-                  className="bg-blue-600 text-white font-medium px-6 h-10 rounded-lg"
+                  className="bg-gradient-to-r from-blue-600 to-blue-800 text-white font-medium px-6 h-10 rounded-lg"
                   disabled
                 >
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -96,7 +106,7 @@ const Navbar = () => {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="text-zinc-700 hover:bg-zinc-100 hover:text-blue-600 rounded-lg h-10 w-10"
+                  className="text-zinc-700 hover:bg-zinc-100 hover:text-blue-700 rounded-lg h-10 w-10"
                 >
                   <LogIn className="h-5 w-5" />
                 </Button>
@@ -105,7 +115,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center">
-              <Sheet>
+              <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
                   <Button
                     variant="ghost"
@@ -120,13 +130,13 @@ const Navbar = () => {
                   {/* Mobile Menu Header */}
                   <div className="flex items-center gap-2 pt-2 pb-6 mb-6 border-b border-zinc-200">
                     <Image 
-                      src='/agency-logo.jpg' 
-                      alt='Agency logo' 
-                      width={36} 
-                      height={36} 
-                      className="w-9 h-9 rounded-full object-cover" 
+                      src='/LOGO.jpg' 
+                      alt='SIT International Education logo' 
+                      width={46} 
+                      height={46} 
+                      className="w-10 h-10 rounded-full object-cover" 
                     />
-                    <span className="font-bold text-lg text-zinc-900">Agency</span>
+                    <span className="font-bold text-sm text-zinc-900 tracking-tight">SIT International Education</span>
                   </div>
 
                   {/* Mobile Navigation */}
@@ -134,7 +144,8 @@ const Navbar = () => {
                     {navlinks.map((item) => (
                       <Link
                         key={item}
-                        href={item === 'Blog' ? '/blogs' : `#${item.toLowerCase()}`}
+                        href={getHref(item)}
+                        onClick={() => setOpen(false)}
                         className="text-zinc-800 hover:text-blue-600 hover:bg-zinc-50 text-base font-medium transition-colors py-3 px-2 rounded-lg"
                       >
                         {item}
@@ -144,10 +155,10 @@ const Navbar = () => {
                     {/* Mobile Actions */}
                     <div className="pt-6 mt-6 space-y-3 border-t border-zinc-200">
                       {mounted && (
-                        <Link href="/dashboard" className="block">
+                        <Link href="/dashboard" onClick={() => setOpen(false)} className="block">
                           <Button 
                             variant="default" 
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium h-11 rounded-lg shadow-sm"
+                            className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium h-11 rounded-lg shadow-md transition-all duration-300"
                             disabled={isLoading}
                           >
                             {isLoading ? (
@@ -158,16 +169,6 @@ const Navbar = () => {
                           </Button>
                         </Link>
                       )}
-                      
-                      <LoginLink className="block">
-                        <Button 
-                          variant="outline" 
-                          className="w-full border-2 border-zinc-300 text-zinc-800 hover:bg-zinc-50 font-medium h-11 rounded-lg"
-                        >
-                          <LogIn className="mr-2 h-4 w-4" />
-                          Sign In
-                        </Button>
-                      </LoginLink>
                     </div>
                   </nav>
                 </SheetContent>

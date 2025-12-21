@@ -13,7 +13,8 @@ import { faqItems } from "@/consts"
       <section className="w-full py-12 rounded-md mb-20 bg-gray-50">
         <div className="container px-4 md:px-6 mx-auto">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
-            <div className="relative aspect-square">
+            {/* Image - Hidden on mobile, shown on desktop on left, shown on mobile at bottom */}
+            <div className="relative aspect-square order-last lg:order-first hidden md:block">
               <Image
                 alt="Student with documents"
                 className="rounded-lg object-cover"
@@ -43,6 +44,16 @@ import { faqItems } from "@/consts"
                   </AccordionItem>
                 ))}
               </Accordion>
+            </div>
+            {/* Image on mobile at bottom */}
+            <div className="relative aspect-square md:hidden">
+              <Image
+                alt="Student with documents"
+                className="rounded-lg object-cover"
+                fill
+                src="/faq.jpeg"
+                priority
+              />
             </div>
           </div>
         </div>

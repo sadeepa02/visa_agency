@@ -4,8 +4,9 @@ import { Calendar, Home, Inbox, BookMarked, GraduationCap, ScrollText, Users } f
 export const navlinks = ['Home', 'About', 'Services', 'Universities', 'Blog']
 
 export const heroImages = [
-  "/hero1.png",
-  "/hero2.jpg",
+  "/hero1.jpg",
+  "/hero3.png",
+  "/hero4.jpg",
 ];
 
 export const aboutUsPara = 'Welcome to SIT International Education, a trusted visa consultancy agency in Sri Lanka dedicated to helping students achieve their academic dreams in Russia. With a commitment to excellence and personalized service, we specialize in guiding students through every step of the process, from selecting the perfect university to securing a student visa. Our experienced team works closely with top Russian universities to provide access to diverse educational opportunities in fields like medicine, engineering, IT, and more. We pride ourselves on transparency, reliability, and a deep understanding of the unique challenges faced by Sri Lankan students. At SIT International Education, we don’t just help you get to Russia; we ensure you are fully prepared for your academic journey, offering support in documentation, language preparation, and cultural orientation. Join us to turn your study-abroad aspirations into reality.'
@@ -19,27 +20,27 @@ export const services = [
     {
       title: "Student Visa Assistance",
       description: "Complete visa application support including document preparation, embassy appointments, and guidance through the Russian visa process for international students.",
-      image: "/service2.jpg"
+      image: "/visa-assistance.png"
     },
     {
       title: "Document Preparation",
-      description: "Professional assistance with preparing and translating all required documents for university admission and visa applications, ensuring compliance with Russian requirements.",
-      image: "/service3.jpg"
+      description: "Professional assistance with preparing and translating all required documents for university admission and visa applications, ensuring compliance.",
+      image: "/dp.jpg"
     },
     {
       title: "Accommodation Support",
       description: "Help finding safe and affordable student housing in Russia, including university dormitories and private apartments in various cities.",
-      image: "/service4.jpg"
+      image: "/accommodation.jpg"
     },
     {
       title: "Pre-Departure Orientation",
       description: "Comprehensive preparation for your journey including cultural orientation, language basics, banking setup, and essential information for living in Russia.",
-      image: "/service5.jpg"
+      image: "/pre-departure.png"
     },
     {
       title: "Ongoing Student Support",
       description: "Continuous support throughout your studies including academic guidance, visa renewals, and assistance with any challenges you may face in Russia.",
-      image: "/service6.jpg"
+      image: "/service3.jpg"
     }
   ]
 
@@ -73,37 +74,37 @@ export const services = [
   export const testimonials = [
     {
       text: "SIT International Education made my dream of studying in Russia come true!, Their team was professional, responsive, and guided me through every step of the student visa process. Highly recommended!",
-      name: "SIT Student 1",
+      name: "Geeth",
       location: "SRI LANKA",
       image: "/testimonial1.jpg"
     },
     {
-      text: "Smooth and stress-free experience! SIT International handled my admission and visa for Russia with great care. I’m now studying in Chebokasary, thanks to them.",
-      name: "SIT Student 2",
+      text: "Smooth and stress-free experience! SIT International handled my admission and visa for Russia with great care. I'm now studying in Chebokasary, thanks to them.",
+      name: "Sadeepa",
       location: "SRI LANKA",
       image: "/testimonial2.jpeg"
     },
     {
       text: "Very supportive staff and trustworthy service. From university selection to visa approval, SIT International Education was with me all the way.",
-      name: "SIT Student 3",
+      name: "Nawam",
       location: "SRI LANKA",
       image: "/testimonial3.jpg"
     },
     {
       text: "Efficient, reliable, and friendly! The consultants at SIT International made the entire student visa process simple and quick. Thank you for your excellent support.",
-      name: "SIT Student 4",
+      name: "Sagara",
       location: "SRI LANKA",
       image: "/testimonial1.jpg"
     },
     {
       text: "I was nervous about applying for a Russian visa, but SIT made everything easy. Their communication was clear, and I always felt well-informed.",
-      name: "SIT Student 5",
+      name: "Hemal",
       location: "SRI LANKA",
       image: "/testimonial2.jpeg"
     },
     {
       text: "Highly professional and experienced team. They helped me choose the right university in Russia and ensured all my documents were perfect for the visa.",
-      name: "SIT Student 6",
+      name: "Visura",
       location: "SRI LANKA",
       image: "/testimonial3.jpg"
     },
