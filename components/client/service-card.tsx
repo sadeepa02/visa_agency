@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion, useInView } from 'framer-motion'
 import Image from "next/image"
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
 
 interface ServiceCardProps {
   service: {

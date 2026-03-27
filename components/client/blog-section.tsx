@@ -2,17 +2,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "../ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { db } from "@/db"
-import { blogs } from "@/db/schema"
+// import { db } from "@/db"
+// import { blogs } from "@/db/schema"
 import { selectBlogSchemaType } from "@/lib/zod-schemas"
 
 export default async function BlogSection() {
-  const posts = await db.select({
-    id: blogs.id,
-    title: blogs.title,
-    content: blogs.content,
-    image: blogs.image
-  }).from(blogs).orderBy(blogs.createdAt).limit(3)
+  // const posts = await db.select({
+  //   id: blogs.id,
+  //   title: blogs.title,
+  //   content: blogs.content,
+  //   image: blogs.image
+  // }).from(blogs).orderBy(blogs.createdAt).limit(3)
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-8 mb-16">
