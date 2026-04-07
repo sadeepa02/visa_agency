@@ -2,10 +2,10 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, MapPin, Users, Award, Calendar, Mail, Globe } from 'lucide-react';
+import { MapPin, Users, Award, Calendar, Mail, Globe, FileText, PhoneCall } from 'lucide-react';
 import { universityData } from '@/consts';
-
-
+import Link from 'next/link';
+import ActionButtons from '@/components/ui/ActionButtons';
 type tParams = Promise<{ slug: string }>;
 
 export default async function UniversityPage(props: { params: tParams }) {
@@ -20,7 +20,7 @@ export default async function UniversityPage(props: { params: tParams }) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Hero Section - Cleaner, More Professional */}
+      {/* Hero Section */}
       <div className="relative w-full h-[500px] lg:h-[600px] overflow-hidden">
         {/* Image Container */}
         <div className="absolute inset-0">
@@ -31,10 +31,10 @@ export default async function UniversityPage(props: { params: tParams }) {
             className="object-cover"
             priority
           />
-          {/* Gradient Overlay for Better Text Readability */}
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
         </div>
-        
+
         {/* Hero Content - Bottom Aligned */}
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-8 md:pb-12 lg:pb-16">
@@ -45,28 +45,7 @@ export default async function UniversityPage(props: { params: tParams }) {
               <p className="text-base sm:text-lg md:text-xl text-slate-50 max-w-2xl mb-6 md:mb-8 leading-relaxed">
                 {university.description}
               </p>
-              <div className="flex flex-wrap gap-3 md:gap-4">
-                <Button 
-                  asChild 
-                  size="lg"
-                  className="bg-white text-slate-900 hover:bg-slate-100 font-semibold shadow-lg"
-                >
-                  <a href={university.website} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Visit Website
-                  </a>
-                </Button>
-                 <Button 
-                  asChild
-                  size="lg"
-                  className="border-2 border-white bg-white/20 text-white hover:bg-white hover:text-slate-900 font-semibold backdrop-blur-md transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <a href={`mailto:admissions@${university.slug}.edu`} className="flex items-center text-white hover:text-slate-900">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Contact Admissions
-                  </a>
-                </Button>
-              </div>
+              <ActionButtons></ActionButtons>
             </div>
           </div>
         </div>
@@ -74,8 +53,8 @@ export default async function UniversityPage(props: { params: tParams }) {
 
       {/* Main Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
-        
-        {/* Quick Stats Grid - Responsive & Aligned */}
+
+        {/* Quick Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
           {[
             { icon: Users, label: "Students", value: "25,000+", color: "blue" },
@@ -83,8 +62,8 @@ export default async function UniversityPage(props: { params: tParams }) {
             { icon: MapPin, label: "Location", value: "Main Campus", color: "green" },
             { icon: Calendar, label: "Established", value: "1850", color: "orange" }
           ].map((stat, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="group bg-white border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-300"
             >
               <CardContent className="p-4 md:p-6 flex flex-col items-center justify-center text-center h-full">
@@ -98,10 +77,10 @@ export default async function UniversityPage(props: { params: tParams }) {
           ))}
         </div>
 
-        {/* Two Column Layout for Better Content Organization */}
+        {/* Two Column Layout */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12 md:mb-16">
-          
-          {/* Main Content - Departments Section with Modern Grid */}
+
+          {/* Departments Section */}
           <div className="lg:col-span-2">
             <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-2xl rounded-3xl overflow-hidden">
               <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
@@ -133,9 +112,9 @@ export default async function UniversityPage(props: { params: tParams }) {
             </Card>
           </div>
 
-          {/* Sidebar - Quick Actions & Info */}
+          {/* Sidebar */}
           <div className="space-y-6">
-            
+
             {/* Quick Actions Card */}
             <Card className="bg-white border border-slate-200 shadow-sm">
               <CardHeader className="pb-4">
@@ -144,11 +123,29 @@ export default async function UniversityPage(props: { params: tParams }) {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                
+                <Button
+                  asChild
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
+                >
+                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=apply`}>
+                    <Mail className="mr-2 h-4 w-4" />
+                    Apply Through Us
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-600"
+                >
+                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=brochure`}>
+                    <FileText className="mr-2 h-4 w-4" />
+                    Request Brochure
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
 
-            {/* Info Card */}
+            {/* Campus Life Info Card */}
             <Card className="bg-gradient-to-br from-blue-50 to-purple-50 border-0 shadow-sm">
               <CardContent className="p-6">
                 <h3 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
@@ -158,14 +155,14 @@ export default async function UniversityPage(props: { params: tParams }) {
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">
                   Experience a vibrant campus community with state-of-the-art facilities, diverse student organizations, and endless opportunities for growth.
                 </p>
-                <Button 
+                <Button
                   asChild
-                  variant="link" 
+                  variant="link"
                   className="p-0 h-auto text-blue-600 hover:text-blue-700"
                 >
-                  <a href={`${university.website}/campus-life`}>
+                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=campuslife`}>
                     Learn more →
-                  </a>
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -175,37 +172,26 @@ export default async function UniversityPage(props: { params: tParams }) {
         {/* Bottom CTA Section */}
         <Card className="bg-gradient-to-r from-blue-600 to-purple-600 border-0 shadow-lg text-white overflow-hidden">
           <CardContent className="p-8 md:p-12 relative">
-            {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-            
+
             <div className="relative z-10 max-w-3xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
                 Ready to Begin Your Academic Journey?
               </h2>
               <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-                Join a community of learners, innovators, and leaders. Start your application today and take the first step toward your future.
+                Our agency guides you through every step of the application process. Get in touch with our team today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button 
+                <Button
                   asChild
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-slate-100 font-semibold shadow-lg w-full sm:w-auto"
                 >
-                  <a href={`${university.website}/apply`}>
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Start Application
-                  </a>
-                </Button>
-                <Button 
-                  asChild
-                  size="lg"
-                  variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white/10 font-semibold w-full sm:w-auto"
-                >
-                  <a href={`${university.website}/brochure.pdf`} download>
-                    Download Brochure
-                  </a>
+                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=apply`}>
+                    <Mail className="mr-2 h-4 w-4" />
+                    Start Your Application
+                  </Link>
                 </Button>
               </div>
             </div>

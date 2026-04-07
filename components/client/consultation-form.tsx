@@ -13,7 +13,7 @@ import { Calendar, Mail, Phone, User, GraduationCap } from "lucide-react"
 export default function ConsultationForm() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [lastResult, action] = useActionState(createConsultation, undefined)
-
+  
   const [form, fields] = useForm({
       lastResult,
       onValidate({ formData }) {
