@@ -1,10 +1,5 @@
+import { redirect } from "next/navigation"
 
-const page = () => {
-  return (
-    <div className="p-10 text-3xl font-semibold">
-      Welcome To The Dashboard..!
-    </div>
-  )
+export default function Page() {
+  redirect("/dashboard/documents")
 }
-
-export default page

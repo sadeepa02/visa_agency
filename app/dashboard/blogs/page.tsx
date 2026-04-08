@@ -9,7 +9,7 @@ const Page = async () => {
   
   return (
     <div className="container mx-auto p-5 overflow-hidden">
-      <div className="bg-zinc-50 rounded-md">
+      <div className="bg-white/80 p-5 rounded-md">
       <DataTable columns={columns} data={data} />
       </div>
       

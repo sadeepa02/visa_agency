@@ -27,9 +27,9 @@ export async function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarContent className="bg-zinc-50">
+      <SidebarContent className="bg-white/50">
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>SIT-International</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {dashboardMenuItems.map((item) => (
@@ -74,9 +74,9 @@ export async function AppSidebar() {
                 <SidebarMenuButton className="py-5">
                 <Avatar>
                     <AvatarImage src={user?.picture || "https://github.com/shadcn.png"} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback>{user?.given_name?.[0] || "U"}</AvatarFallback>
                 </Avatar>
-                Username
+                <span className="truncate">{user?.given_name || "User"}</span>
                   <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>

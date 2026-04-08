@@ -55,14 +55,6 @@ export default function DocumentUploader() {
       <p style={{ color: '#6B7280', fontSize: 14, marginTop: 15, lineHeight: 1.5 }}>
         If the problem persists, please contact our support team:
       </p>
-      <div style={{ marginTop: 10 }}>
-        <a href="mailto:support@example.com?subject=Document Upload Issue" style={{ color: '#2563EB', fontSize: 14, display: 'block', margin: '5px 0' }}>
-          📧 Email: support@example.com
-        </a>
-        <p style={{ color: '#2563EB', fontSize: 14, margin: '5px 0' }}>
-          📞 Phone: +1 (800) 123-4567
-        </p>
-      </div>
     </div>,
     {
       action: {
