@@ -92,21 +92,21 @@ export const services = [
     },
     {
       text: "Efficient, reliable, and friendly! The consultants at SIT International made the entire student visa process simple and quick. Thank you for your excellent support.",
-      name: "Sagara",
+      name: "Bashitha",
       location: "SRI LANKA",
-      image: "/testimonial1.jpg"
+      image: "/testimonial4.JPG"
     },
     {
       text: "I was nervous about applying for a Russian visa, but SIT made everything easy. Their communication was clear, and I always felt well-informed.",
-      name: "Hemal",
+      name: "Harshana",
       location: "SRI LANKA",
-      image: "/testimonial2.jpeg"
+      image: "/testimonial5.JPG"
     },
     {
       text: "Highly professional and experienced team. They helped me choose the right university in Russia and ensured all my documents were perfect for the visa.",
       name: "Visura",
       location: "SRI LANKA",
-      image: "/testimonial3.jpg"
+      image: "/testimonial6.JPG"
     },
     {
       text: "If you're planning to study in Russia, I highly recommend SIT International Education. They are genuine, honest, and always ready to help.",
@@ -261,22 +261,8 @@ export const universityData = [
       "Chemistry",
       "Physics"
     ]
-  },
-  {
-    name: "Kazan Innovative University (IEML)",
-    slug: "kazan-innovative-university",
-    image: "/uni6.jpg",
-    description: "Kazan Innovative University is one of the top private universities in Russia, known for its excellence in hospitality, management, and innovative educational technologies.",
-    website: "https://ieml.ru/en/about/general-information/",
-    departments: [
-      "Economics",
-      "Management",
-      "Psychology and Pedagogy",
-      "Law",
-      "Tourism and Food Service",
-      "Design"
-    ]
   }
+  
 ];
 
 export const team = [

@@ -5,7 +5,7 @@ import { universityData } from "@/consts";
 import { Plus, Search, GraduationCap, MapPin, Star, ArrowRight, Globe } from 'lucide-react';
 import Link from "next/link";
 import { useState } from 'react';
-
+import { Button } from "@/components/ui/button";
 export default function UniversityList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
@@ -71,7 +71,7 @@ export default function UniversityList() {
               <div className="text-3xl md:text-4xl font-bold text-blue-800 mb-2 group-hover:scale-110 transition-transform duration-300">
                 50+
               </div>
-              <div className="text-gray-500 text-sm md:text-base">Countries</div>
+              <div className="text-gray-500 text-sm md:text-base">Programs</div>
             </div>
             <div className="text-center group cursor-pointer">
               <div className="text-3xl md:text-4xl font-bold text-blue-800 mb-2 group-hover:scale-110 transition-transform duration-300">
@@ -196,13 +196,9 @@ export default function UniversityList() {
                 Get personalized university recommendations based on your interests, budget, and career goals
               </p>
               
-              <Link 
-                href="/consultation"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 group"
-              >
-                Get Free Consultation
-                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
+              <Button asChild className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold text-lg rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110 active:scale-95 group">
+            <Link href="#Consultation">Get Free Consultation <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" /></Link>
+          </Button>
             </div>
           </div>
         </div>

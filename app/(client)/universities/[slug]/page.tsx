@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Users, Award, Calendar, Mail, Globe, FileText } from 'lucide-react';
+import { MapPin, Users, Award, Calendar, Globe } from 'lucide-react';
 import { universityData } from '@/consts';
 import Link from 'next/link';
 import ActionButtons from '@/components/ui/ActionButtons';
@@ -13,6 +13,16 @@ export default async function UniversityPage(props: { params: tParams }) {
   const university = universityData.find(
     (u) => u.slug.toLowerCase() === slug
   );
+  const city = (university as any)?.city ?? 'Not specified';
+  const approxStudents = (university as any)?.students ?? '25,000+';
+  const quickFacts = [
+    { label: 'City', value: city },
+    { label: 'Country', value: 'Russia' },
+    { label: 'Rating', value: '4.7 / 5' },
+    { label: 'Programs listed', value: university?.departments.length ?? 0 },
+    { label: 'Approx. students', value: `≈${approxStudents}` },
+  ];
+  const facilities = ['Hostels', 'Library', 'Playground', 'Cafeteria', 'Gym'];
 
   if (!university) {
     return notFound();
@@ -115,33 +125,39 @@ export default async function UniversityPage(props: { params: tParams }) {
           {/* Sidebar */}
           <div className="space-y-6">
 
-            {/* Quick Actions Card */}
+            {/* Quick Facts Card */}
             <Card className="bg-white border border-slate-200 shadow-sm">
               <CardHeader className="pb-4">
                 <CardTitle className="text-lg font-semibold text-slate-900">
-                  Quick Actions
+                  Quick Facts
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <Button
-                  asChild
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
-                >
-                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=apply`}>
-                    <Mail className="mr-2 h-4 w-4" />
-                    Apply Through Us
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-600"
-                >
-                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=brochure`}>
-                    <FileText className="mr-2 h-4 w-4" />
-                    Request Brochure
-                  </Link>
-                </Button>
+              <CardContent className="space-y-6">
+                <div className="space-y-3">
+                  {quickFacts.map((fact, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between rounded-lg bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+                    >
+                      <span className="text-slate-500">{fact.label}</span>
+                      <span className="text-slate-900">{fact.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900 mb-2">Facilities</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {facilities.map((facility) => (
+                      <span
+                        key={facility}
+                        className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-800"
+                      >
+                        <span className="text-blue-500">•</span>
+                        {facility}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
@@ -182,18 +198,6 @@ export default async function UniversityPage(props: { params: tParams }) {
               <p className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto">
                 Our agency guides you through every step of the application process. Get in touch with our team today.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-white text-blue-600 hover:bg-slate-100 font-semibold shadow-lg w-full sm:w-auto"
-                >
-                  <Link href={`/contact-us?university=${encodeURIComponent(university.name)}&type=apply`}>
-                    <Mail className="mr-2 h-4 w-4" />
-                    Start Your Application
-                  </Link>
-                </Button>
-              </div>
             </div>
           </CardContent>
         </Card>
