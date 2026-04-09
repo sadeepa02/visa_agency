@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, BookMarked, GraduationCap, ScrollText, Users } from "lucide-react"
+import { Calendar, Home, Inbox, BookMarked, GraduationCap, ScrollText, Users, FileText } from "lucide-react"
 
 
 export const navlinks = ['Home', 'About', 'Services', 'Universities', 'Blog']
@@ -133,6 +133,11 @@ export const services = [
       title: "Home",
       url: "/",
       icon: Home,
+    },
+    {
+      title: "Documents",
+      url: "/dashboard/documents",
+      icon: FileText,
     },
     {
       title: "Consultations",
