@@ -7,14 +7,18 @@ import { universityData } from '@/consts';
 import Link from 'next/link';
 import ActionButtons from '@/components/ui/ActionButtons';
 type tParams = Promise<{ slug: string }>;
+type ExtendedUniversity = (typeof universityData)[number] & {
+  city?: string;
+  students?: string | number;
+};
 
 export default async function UniversityPage(props: { params: tParams }) {
   const { slug } = await props.params;
   const university = universityData.find(
     (u) => u.slug.toLowerCase() === slug
-  );
-  const city = (university as any)?.city ?? 'Not specified';
-  const approxStudents = (university as any)?.students ?? '25,000+';
+  ) as ExtendedUniversity | undefined;
+  const city = university?.city ?? 'Not specified';
+  const approxStudents = university?.students ?? '25,000+';
   const quickFacts = [
     { label: 'City', value: city },
     { label: 'Country', value: 'Russia' },
