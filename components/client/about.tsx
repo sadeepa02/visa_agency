@@ -1,8 +1,7 @@
 'use client'
 
-import { aboutUsPara, team } from "@/consts"
+import { aboutUsPara } from "@/consts"
 import { TextGenerateEffect } from "../ui/text-generate"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import OurTeam from "./our-team"
 import { useInView } from "@/hooks/use-in-view"
