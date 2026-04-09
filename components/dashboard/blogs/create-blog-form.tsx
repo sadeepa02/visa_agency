@@ -33,7 +33,7 @@ export function AddBlogForm() {
     if (image) {
       form.validate()
     }
-  }, [image])
+  }, [image, form])
 
   const handleSubmit = async (formData: FormData) => {
     if (image) {

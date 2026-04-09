@@ -105,20 +105,23 @@ const Hero = () => {
         </div>
       )}
 
-      {/* Fallback <img> */}
+      {/* Fallback Image */}
       {error && currentSrc && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img
+        <div className="absolute inset-0">
+          <Image
             src={currentSrc}
             alt="fallback hero"
-            className="w-full h-full object-cover"
+            fill
+            unoptimized={true}
+            priority
+            style={{ objectFit: 'cover', objectPosition: 'top center', opacity: loaded ? 1 : 0, transition: 'opacity 600ms ease' }}
             onLoad={() => {
-              console.log('Fallback <img> loaded', currentSrc);
+              console.log('Fallback Image loaded', currentSrc);
               setLoaded(true);
               setError(false);
             }}
             onError={(e) => {
-              console.error('Fallback <img> failed', currentSrc, e);
+              console.error('Fallback Image failed', currentSrc, e);
             }}
           />
           <div className="absolute inset-0 bg-black/40" />

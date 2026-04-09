@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Users, Award, Calendar, Mail, Globe, FileText, PhoneCall } from 'lucide-react';
+import { MapPin, Users, Award, Calendar, Mail, Globe, FileText } from 'lucide-react';
 import { universityData } from '@/consts';
 import Link from 'next/link';
 import ActionButtons from '@/components/ui/ActionButtons';
